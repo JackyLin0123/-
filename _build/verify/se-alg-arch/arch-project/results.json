@@ -1,0 +1,436 @@
+{
+  "schemaVersion": 1,
+  "projectId": "arch01-trace-machine",
+  "projectRevision": 1,
+  "targetId": "node-local",
+  "runId": "arch01-2026-10-23T02-19-39.143719+00-00",
+  "recordedAt": "2026-10-23T02:19:39.143719+00:00",
+  "environment": {
+    "python": "3.11.1",
+    "os": "windows",
+    "architecture": "x86_64",
+    "node": "v24.19.0",
+    "nodeProcessArchitecture": "x64"
+  },
+  "config": {
+    "model": "RV32I-text-subset",
+    "wordBits": 32,
+    "memoryBytes": 256,
+    "endianness": "little",
+    "seed": 20261022,
+    "timeoutSeconds": 30,
+    "isolatedTemporaryCopy": true
+  },
+  "command": [
+    "python",
+    "-B",
+    "-X",
+    "utf8",
+    "projects/arch01-trace-machine/run.py",
+    "--out",
+    "_build/verify/se-alg-arch/arch-project"
+  ],
+  "sourceManifest": [
+    {
+      "path": "projects/arch01-trace-machine/README.md",
+      "sha256": "9f32c92eb1d627dbfb5af92ec8f98ebb92b88ab3fb6a209f29c7019c9d4394ba"
+    },
+    {
+      "path": "projects/arch01-trace-machine/MODEL.md",
+      "sha256": "44a338fe5764bb1ea21eba8b9501867f5718f6dedce95042634c61f48d265367"
+    },
+    {
+      "path": "projects/arch01-trace-machine/run.py",
+      "sha256": "d175c28c740ebc8df814c7d578f81eacbe92f2571c9fde6354bf6aae1a97c7a3"
+    },
+    {
+      "path": "projects/arch01-trace-machine/verify.js",
+      "sha256": "c4171ac9fe2d4f2dbb73395583bdfffe02d4ca202eba6cdcb665a1e83c45ef9c"
+    },
+    {
+      "path": "assets/js/demos/arch-logic-fsm.js",
+      "sha256": "b66f2ff3a1037cc57037f1faece06131155091b956cd3f2a39c4f0d1e4a40bf4"
+    },
+    {
+      "path": "assets/js/demos/arch-datapath-control.js",
+      "sha256": "0b5b5f8269b890570864a1cd1a972385977dd963839431e751c4c8a46a8d28ca"
+    },
+    {
+      "path": "assets/js/demos/arch-pipeline-timing.js",
+      "sha256": "dfd46c4a189b6437400467d5e50734513e3b12f86143f642e2ce48c1db954d37"
+    },
+    {
+      "path": "assets/js/demos/arch-cache.js",
+      "sha256": "b25ee0a79bbdd073247ef81a040a0629c330bf5cfa4606f932491078124757b5"
+    }
+  ],
+  "inputManifest": [
+    {
+      "path": "projects/arch01-trace-machine/fixtures.json",
+      "sha256": "b8187654f8c8f6f194748054e7f82198d30ae8d25ae98730a0eeb7a3ce227e8e"
+    }
+  ],
+  "assertions": [
+    {
+      "name": "All demo built-in checks (including old Cache read-only fixtures)",
+      "passed": true
+    },
+    {
+      "name": "ARCH-T1 exhaustively compare all 8-bit add/sub pairs with integer bounds",
+      "passed": true
+    },
+    {
+      "name": "FSM all 256 eight-bit sequences agree with accumulated population mod3",
+      "passed": true
+    },
+    {
+      "name": "ARCH-T2 forwarding 8 cycles / one stall and reference final x5=12",
+      "passed": true
+    },
+    {
+      "name": "Load multicycle control trace: address/MDR/writeback and no store enable",
+      "passed": true
+    },
+    {
+      "name": "Forwarding disabled: 11 cycles, same state",
+      "passed": true
+    },
+    {
+      "name": "x0 immutable; arithmetic wraps modulo 2^32; little endian stores",
+      "passed": true
+    },
+    {
+      "name": "JAL target uses current PC; JALR reads old rs1, clears bit0 before checking IALIGN",
+      "passed": true
+    },
+    {
+      "name": "Unknown opcode, immediate overflow, misalignment, bounds and bounded loops rejected",
+      "passed": true
+    },
+    {
+      "name": "EX/MEM branch resolution, flush prevents wrong-path store and register effects",
+      "passed": true
+    },
+    {
+      "name": "160 frozen-seed programs: sequential/pipeline match independent oracle",
+      "passed": true
+    },
+    {
+      "name": "ARCH-T3 direct mapping 0,4,0,16,0 has one hit and four misses",
+      "passed": true
+    },
+    {
+      "name": "Cache writeback/allocation policies, dirty eviction, LRU, lower traffic",
+      "passed": true
+    },
+    {
+      "name": "8-bit sign extension, binary32 bit examples and performance arithmetic",
+      "passed": true
+    }
+  ],
+  "measurements": [
+    {
+      "type": "events",
+      "unit": "simulated-cycle",
+      "data": [
+        {
+          "cycle": 1,
+          "retired": 0,
+          "notes": ""
+        },
+        {
+          "cycle": 2,
+          "retired": 0,
+          "notes": ""
+        },
+        {
+          "cycle": 3,
+          "retired": 0,
+          "notes": "检测load-use：下一拍冻结IF/ID，EX注入bubble"
+        },
+        {
+          "cycle": 4,
+          "retired": 0,
+          "notes": "本拍前端保持，EX为气泡；生产者继续推进"
+        },
+        {
+          "cycle": 5,
+          "retired": 1,
+          "notes": "MEM/WB→EX x1"
+        },
+        {
+          "cycle": 6,
+          "retired": 1,
+          "notes": "EX/MEM→EX x3"
+        },
+        {
+          "cycle": 7,
+          "retired": 2,
+          "notes": ""
+        },
+        {
+          "cycle": 8,
+          "retired": 3,
+          "notes": ""
+        }
+      ]
+    }
+  ],
+  "status": "passed",
+  "events": [
+    {
+      "pc": 0,
+      "instruction": "lw x1,0(x2)",
+      "rs1": 0,
+      "rs2": 0,
+      "rd": 1,
+      "value": 7,
+      "address": 0,
+      "memoryWrite": null,
+      "nextPC": 4,
+      "regs": [
+        0,
+        7,
+        0,
+        0,
+        2,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "controlTrace": [
+        {
+          "state": "IF",
+          "signals": "IRWrite=1, PCWrite=1, ALU=PC+4",
+          "values": {
+            "IR": "lw x1,0(x2)",
+            "oldPC": 0,
+            "sequentialPC": 4
+          }
+        },
+        {
+          "state": "ID",
+          "signals": "A←rs1, B←rs2；保存当前指令地址/分支候选目标",
+          "values": {
+            "A": 0,
+            "B": 0
+          }
+        },
+        {
+          "state": "EX",
+          "signals": "ALUOut←A+imm",
+          "values": {
+            "ALUOut": 0,
+            "branchTarget": null,
+            "nextPC": 4
+          }
+        },
+        {
+          "state": "MEM",
+          "signals": "MemRead=1, MDRWrite=1",
+          "values": {
+            "address": 0,
+            "MDR": 7
+          }
+        },
+        {
+          "state": "WB",
+          "signals": "RegWrite=1, WB=MDR",
+          "values": {
+            "rd": 1,
+            "writeValue": 7,
+            "discard": false
+          }
+        }
+      ]
+    },
+    {
+      "pc": 4,
+      "instruction": "add x3,x1,x4",
+      "rs1": 7,
+      "rs2": 2,
+      "rd": 3,
+      "value": 9,
+      "address": null,
+      "memoryWrite": null,
+      "nextPC": 8,
+      "regs": [
+        0,
+        7,
+        0,
+        9,
+        2,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "controlTrace": [
+        {
+          "state": "IF",
+          "signals": "IRWrite=1, PCWrite=1, ALU=PC+4",
+          "values": {
+            "IR": "add x3,x1,x4",
+            "oldPC": 4,
+            "sequentialPC": 8
+          }
+        },
+        {
+          "state": "ID",
+          "signals": "A←rs1, B←rs2；保存当前指令地址/分支候选目标",
+          "values": {
+            "A": 7,
+            "B": 2
+          }
+        },
+        {
+          "state": "EX",
+          "signals": "ALUOut/目标←算术或跳转计算",
+          "values": {
+            "ALUOut": 9,
+            "branchTarget": null,
+            "nextPC": 8
+          }
+        },
+        {
+          "state": "WB",
+          "signals": "RegWrite=1（rd=x0时丢弃）；跳转写PC+4",
+          "values": {
+            "rd": 3,
+            "writeValue": 9,
+            "discard": false
+          }
+        }
+      ]
+    },
+    {
+      "pc": 8,
+      "instruction": "add x5,x3,x6",
+      "rs1": 9,
+      "rs2": 3,
+      "rd": 5,
+      "value": 12,
+      "address": null,
+      "memoryWrite": null,
+      "nextPC": 12,
+      "regs": [
+        0,
+        7,
+        0,
+        9,
+        2,
+        12,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "controlTrace": [
+        {
+          "state": "IF",
+          "signals": "IRWrite=1, PCWrite=1, ALU=PC+4",
+          "values": {
+            "IR": "add x5,x3,x6",
+            "oldPC": 8,
+            "sequentialPC": 12
+          }
+        },
+        {
+          "state": "ID",
+          "signals": "A←rs1, B←rs2；保存当前指令地址/分支候选目标",
+          "values": {
+            "A": 9,
+            "B": 3
+          }
+        },
+        {
+          "state": "EX",
+          "signals": "ALUOut/目标←算术或跳转计算",
+          "values": {
+            "ALUOut": 12,
+            "branchTarget": null,
+            "nextPC": 12
+          }
+        },
+        {
+          "state": "WB",
+          "signals": "RegWrite=1（rd=x0时丢弃）；跳转写PC+4",
+          "values": {
+            "rd": 5,
+            "writeValue": 12,
+            "discard": false
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "environment": {
+    "torch": "2.9.1+cpu",
+    "python": "3.11.1",
+    "device": "cpu"
+  },
+  "checks": [
+    {
+      "fault": "stale-gradients",
+      "before": 72.0,
+      "after": 36.0,
+      "expected": 36.0,
+      "explanation": "A new forward does not clear leaf .grad."
+    },
+    {
+      "fault": "broadcast-loss",
+      "before": 1.3333333730697632,
+      "after": 0.0,
+      "expected": 0.0,
+      "explanation": "Align labels to (N,1) before subtraction."
+    },
+    {
+      "fault": "split-leakage",
+      "before": [
+        2
+      ],
+      "after": [],
+      "expected": [],
+      "explanation": "Repeated sample identity crosses the validation boundary."
+    }
+  ],
+  "ok": true
+}

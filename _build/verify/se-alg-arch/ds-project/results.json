@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "projectId": "alg01-design-proof",
+  "projectRevision": 1,
+  "targetId": "windows-x86_64",
+  "runId": "8bdef76a-fcd7-4724-a1d0-479e9c5baff9",
+  "recordedAt": "2026-10-23T01:57:28.276583+00:00",
+  "environment": {
+    "os": "windows",
+    "osVersion": "10.0.26200",
+    "architecture": "x86_64",
+    "architectureSource": "GetNativeSystemInfo",
+    "python": "3.11.1",
+    "java": "openjdk version \"17.0.19\" 2026-04-21 LTS\nOpenJDK Runtime Environment Microsoft-13877129 (build 17.0.19+10-LTS)\nOpenJDK 64-Bit Server VM Microsoft-13877129 (build 17.0.19+10-LTS, mixed mode, sharing)",
+    "javac": "javac 17.0.19"
+  },
+  "command": [
+    "python",
+    "-B",
+    "-X",
+    "utf8",
+    "projects/alg01-design-proof/run.py",
+    "--out",
+    "_build/verify/se-alg-arch/ds-project"
+  ],
+  "sourceManifest": [
+    {
+      "path": "projects/alg01-design-proof/Algorithms.java",
+      "sha256": "8d772b305d2bd4c1de267eeea71f54a7126a99a0169c07a1c13ed5d75aa7a831"
+    },
+    {
+      "path": "projects/alg01-design-proof/BruteOracle.java",
+      "sha256": "523e969a12be2905da555e91666343b48d56b4c324269cd0622fa5a89c799309"
+    },
+    {
+      "path": "projects/alg01-design-proof/LabTest.java",
+      "sha256": "63a5a69473a6ab60cb411939129452a972b3733d611f0fda160c14cef824e91a"
+    },
+    {
+      "path": "projects/alg01-design-proof/run.py",
+      "sha256": "056d0134910e3a44be82226ef729bf9c52a4959fec53803c16752e5069ddd2c3"
+    },
+    {
+      "path": "projects/alg01-design-proof/README.md",
+      "sha256": "6a3afe542e80476608a8acbba40c5de9372684f99d4f964312fec775752f32b6"
+    },
+    {
+      "path": "projects/alg01-design-proof/PROOFS.md",
+      "sha256": "53f59e8600e92151f5714b9729610c2ac8cd310a74b2872580dbf92e84c93919"
+    }
+  ],
+  "inputManifest": [
+    {
+      "path": "projects/alg01-design-proof/fixtures.json",
+      "sha256": "58189939b573535fde933d1de3fd2f8ed952d2bc583bbe0af4d9856c7d8c6fed"
+    }
+  ],
+  "config": {
+    "timeoutPerCommandSeconds": 30,
+    "javaStandard": "17+",
+    "enumeration": "deterministic bounded exhaustive",
+    "proofStatus": "separate human-reviewable PROOFS.md, not certified by test"
+  },
+  "status": "passed",
+  "assertions": [
+    {
+      "name": "fixture-inversions",
+      "passed": true
+    },
+    {
+      "name": "fixture-knapsack",
+      "passed": true
+    },
+    {
+      "name": "fixture-wrongKnapsack",
+      "passed": true
+    },
+    {
+      "name": "fixture-greedyWeight",
+      "passed": true
+    },
+    {
+      "name": "fixture-optimalWeight",
+      "passed": true
+    },
+    {
+      "name": "fixture-lcsLength",
+      "passed": true
+    },
+    {
+      "name": "fixture-flow",
+      "passed": true
+    },
+    {
+      "name": "LCS-returned-answer-in-two-fixture-alternatives",
+      "passed": true
+    },
+    {
+      "name": "Java-enumeration-assertions-completed",
+      "passed": true
+    }
+  ],
+  "measurements": [
+    {
+      "type": "groups",
+      "unit": "finite instances",
+      "data": [
+        {
+          "task": "inversions",
+          "cases": 3280
+        },
+        {
+          "task": "knapsack",
+          "cases": 15080
+        },
+        {
+          "task": "lcs",
+          "cases": 961
+        },
+        {
+          "task": "flow",
+          "cases": 4096
+        },
+        {
+          "task": "matching",
+          "cases": 512
+        },
+        {
+          "task": "cover",
+          "cases": 64
+        },
+        {
+          "task": "intervals",
+          "cases": 793
+        }
+      ]
+    },
+    {
+      "type": "groups",
+      "unit": "assertions",
+      "data": [
+        {
+          "total": 73455
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "inversions": 2,
+    "knapsack": 7,
+    "wrongKnapsack": 8,
+    "greedyWeight": 4,
+    "optimalWeight": 5,
+    "lcsLength": 3,
+    "lcs": "ABD",
+    "flow": 3,
+    "cases": {
+      "inversions": 3280,
+      "knapsack": 15080,
+      "lcs": 961,
+      "flow": 4096,
+      "matching": 512,
+      "cover": 64,
+      "intervals": 793
+    },
+    "assertions": 73455
+  },
+  "executedCommands": [
+    [
+      "javac",
+      "-encoding",
+      "UTF-8",
+      "-d",
+      "classes",
+      "Algorithms.java",
+      "BruteOracle.java",
+      "LabTest.java"
+    ],
+    [
+      "java",
+      "-cp",
+      "classes",
+      "LabTest"
+    ]
+  ]
+}

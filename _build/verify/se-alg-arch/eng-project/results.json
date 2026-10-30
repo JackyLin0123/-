@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "projectId": "se01-reservation-evolution",
+  "projectRevision": 1,
+  "targetId": "windows-x86_64",
+  "runId": "se01-1792720523254808600",
+  "recordedAt": "2026-10-23T01:55:23.254808+00:00",
+  "environment": {
+    "os": "windows",
+    "architecture": "",
+    "python": "3.11.1",
+    "java": "openjdk version \"17.0.19\" 2026-04-21 LTS\nOpenJDK Runtime Environment Microsoft-13877129 (build 17.0.19+10-LTS)\nOpenJDK 64-Bit Server VM Microsoft-13877129 (build 17.0.19+10-LTS, mixed mode, sharing)",
+    "javac": "javac 17.0.19"
+  },
+  "command": [
+    "python",
+    "projects/se01-reservation-evolution/run.py",
+    "--out",
+    "_build/verify/se-alg-arch/eng-project"
+  ],
+  "config": {
+    "model": "single-thread half-open nonnegative integer slots",
+    "timeoutSeconds": 30
+  },
+  "sourceManifest": [
+    {
+      "path": "projects/se01-reservation-evolution/run.py",
+      "sha256": "e56b07fbd1f47b30a6440221c263b6b3b81bbce6ce1369792a3811dbe8292ade"
+    },
+    {
+      "path": "projects/se01-reservation-evolution/src/ContractTests.java",
+      "sha256": "8f6694633c390f8415756cbed900beb117836b43c0b4997353321f52e7b90ebf"
+    },
+    {
+      "path": "projects/se01-reservation-evolution/src/ReservationBook.java",
+      "sha256": "941e34b9ce8981db2fa7a07a890a0982bd32cbee106622e79e98cd11f80587fa"
+    },
+    {
+      "path": "projects/se01-reservation-evolution/src/ReservationCli.java",
+      "sha256": "c669c4899413929d144828792785d8d000e54f7f64bd9185d4789753e5c2a8f2"
+    }
+  ],
+  "inputManifest": [
+    {
+      "path": "projects/se01-reservation-evolution/fixtures/cli.txt",
+      "sha256": "ecae18e2a94059d82c94dde349a54630b01e4059f5bc1bfdd52602b26185c74c"
+    },
+    {
+      "path": "projects/se01-reservation-evolution/fixtures/expected-cli.txt",
+      "sha256": "d18174ad02ab86f8fc7a24d160aa48f273e7e49086fb3d746a41ad0538355abf"
+    }
+  ],
+  "assertions": [
+    {
+      "name": "four store/refactor variants and independent 225-pair oracle",
+      "passed": true
+    },
+    {
+      "name": "expected-red alias and closed boundary witnesses detected then fixed",
+      "passed": true
+    },
+    {
+      "name": "same empty active set has distinct future allocation behavior; four variants retain history",
+      "passed": true
+    },
+    {
+      "name": "CLI list exact fixture",
+      "passed": true
+    },
+    {
+      "name": "CLI tree exact fixture",
+      "passed": true
+    }
+  ],
+  "measurements": [],
+  "status": "passed",
+  "executedCommands": [
+    [
+      "java",
+      "-version"
+    ],
+    [
+      "javac",
+      "-version"
+    ],
+    [
+      "javac",
+      "-encoding",
+      "UTF-8",
+      "-d",
+      "<user-home>\\AppData\\Local\\Packages\\sandbox.{03ef8c9b-7b0a-46ea-9b2e-04645f626f57}\\AC\\Temp\\kg-se01-vc7efhrb",
+      "<project-root>\\projects\\se01-reservation-evolution\\src\\ContractTests.java",
+      "<project-root>\\projects\\se01-reservation-evolution\\src\\ReservationBook.java",
+      "<project-root>\\projects\\se01-reservation-evolution\\src\\ReservationCli.java"
+    ],
+    [
+      "java",
+      "-ea",
+      "-cp",
+      "<user-home>\\AppData\\Local\\Packages\\sandbox.{03ef8c9b-7b0a-46ea-9b2e-04645f626f57}\\AC\\Temp\\kg-se01-vc7efhrb",
+      "ContractTests"
+    ],
+    [
+      "java",
+      "-ea",
+      "-cp",
+      "<user-home>\\AppData\\Local\\Packages\\sandbox.{03ef8c9b-7b0a-46ea-9b2e-04645f626f57}\\AC\\Temp\\kg-se01-vc7efhrb",
+      "ReservationCli",
+      "list"
+    ],
+    [
+      "java",
+      "-ea",
+      "-cp",
+      "<user-home>\\AppData\\Local\\Packages\\sandbox.{03ef8c9b-7b0a-46ea-9b2e-04645f626f57}\\AC\\Temp\\kg-se01-vc7efhrb",
+      "ReservationCli",
+      "tree"
+    ]
+  ]
+}

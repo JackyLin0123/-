@@ -1,0 +1,11 @@
+reserve A 10 20
+reserve A 20 30
+reserve A 19 21
+reserve A 5 5
+list
+cancel-if-present 1
+cancel-if-present 1
+cancel 1
+reserve A 10 20
+list
+quit

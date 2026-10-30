@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "scope": "Finite, deterministic teaching fixtures; not a general proof.",
+  "inversions": {"input": [3,1,2], "expected": 2},
+  "knapsack": {"weights": [2,3,4], "values": [4,5,7], "capacity": 4, "expected": 7, "wrongForwardExpected": 8},
+  "weightedIntervals": {"input": [[0,2,2],[2,4,2],[0,4,5]], "greedyExpected": 4, "optimumExpected": 5},
+  "lcs": {"a": "ABCD", "b": "ACBD", "expectedLength": 3, "possibleAnswers": ["ABD","ACD"]},
+  "flow": {"capacity": [[0,2,1,0],[0,0,1,1],[0,0,0,2],[0,0,0,0]], "source": 0, "sink": 3, "expected": 3}
+}

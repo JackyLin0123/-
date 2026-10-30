@@ -1,0 +1,11 @@
+READY reserve RESOURCE START END | list | cancel ID | cancel-if-present ID | quit
+OK 1
+OK 2
+ERROR ConflictException
+ERROR IllegalArgumentException
+LIST [1:A:[10,20), 2:A:[20,30)]
+REMOVED true
+REMOVED false
+ERROR NoSuchElementException
+OK 3
+LIST [3:A:[10,20), 2:A:[20,30)]
